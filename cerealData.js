@@ -1,0 +1,81 @@
+//USE FS NODE
+const fs = require ('fs');
+
+//READ CEREAL.CSV
+let data = fs.readFileSync('datasets/cereal.csv','utf8');
+
+//CHECK DATA TYPE OF DATA
+console.log('this is the type of data: ' +  typeof data);
+
+//SPLIT OUR DATA STRING TO NEW LINES INTO ARRAY
+let lines = data.split('\n');
+
+//TEST IF LINES IS AN ARRAY
+console.log('is lines variable an array? ' + Array.isArray(lines));
+
+//Grab first line of lines.
+let firstLine = lines[0];
+
+//Split firstLine
+firstLine = firstLine.split(';');
+
+//console.log first line
+console.log(firstLine);
+
+//rid of the /r from last index
+let lastProperty = firstLine[firstLine.length - 1];
+lastProperty = lastProperty.split('');
+lastProperty.pop();
+lastProperty = lastProperty.join('');
+
+firstLine[firstLine.length -1] = lastProperty;
+
+console.log(firstLine);
+
+class Cereal {
+ constructor(string){
+
+  let currentCereal = string.split(';') ;
+
+ this.name = currentCereal[0];
+ this.manifacturer = currentCereal[1];
+ this.type = currentCereal[2];
+ this.calories = currentCereal[3];
+ this.protein = currentCereal[4];
+ this.fat = currentCereal[5];
+ this.sodium = currentCereal[6];
+ this.fiber = currentCereal[7];
+ this.carbs = currentCereal[8];
+ this.sugar = parseInt(currentCereal[9]);
+ this.potassium = currentCereal[10];
+ this.vitamins = currentCereal[11];
+ this.shelf = currentCereal[12];
+ this.weight = currentCereal[13];
+ this.cups = currentCereal[14];
+ this.rating = currentCereal[15];
+ }
+}
+
+let cerealObjects = [];
+
+for (let i = 2; i < lines.length - 1; i++){
+ cerealObjects.push( new Cereal (lines[i]));
+}
+
+//console.log(cerealObjects[56].name)
+//grab value of sugar from every cereal
+
+let sum = 0;
+
+for(let i = 0; i < cerealObjects.length; i++){
+	sum = cerealObjects[i].sugar + sum;
+}
+
+let averageSugar = sum/cerealObjects.length;
+
+console.log('the average sugar for our set of cereals is ' + averageSugar + ' grams');
+
+//console.log(cerealObjects[0].sugar, cerealObjects[i].sugar)
+//let myFirstCereal  = new Cereal(lines[2]);
+
+//console.log(`the cereal ${myFirstCereal.name} has a total of ${myFirstCereal.sugar} grams of sugar`)
