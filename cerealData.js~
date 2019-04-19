@@ -4,15 +4,22 @@ const fs = require ('fs');
 //READ CEREAL.CSV
 let data = fs.readFileSync('datasets/cereal.csv','utf8');
 
+//CHECK DATA TYPE OF DATA
+console.log('this is the type of data: ' +  typeof data);
+
 //SPLIT OUR DATA STRING TO NEW LINES INTO ARRAY
 let lines = data.split('\n');
 
-//Grab first line of lines
-let firstLine = lines[0] ;
+//TEST IF LINES IS AN ARRAY
+//console.log('is lines variable an array? ' + Array.isArray(lines));
+
+//Grab first line of lines.
+let firstLine = console.log('this is the first line: ' + lines[0] + 'END OF THE FIRST LINE') ;
 
 //Split firstLine
 firstLine = firstLine.split(';');
 
+//console.log first line
 console.log(firstLine);
 
 //rid of the /r from last index

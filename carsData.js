@@ -4,35 +4,11 @@ const fs = require ('fs');
 let data = fs.readFileSync('datasets/cars.json', 'utf8');
 //CONVERT DATA STRING INTO ACTUAL JAVASCRIPT OBJECTS
 let carsObjects = JSON.parse(data);
-//CONSOLE LOG THE CARSOBJECT
-
-//console.log(carsObjects);
-
-let carsArray = carsObjects.Makes;
-
-//FIND THE MOST COMMON MANUFACTURER (t's method)
-/*
-let countUK = 0;
-let countUS = 0;
-
-for (let i = 0; i < carsArray.length; i++){
- if(carsArray[i].make_country == 'UK'){
-   countUK++;
- } else if (carsArray[i].make_country == 'USA'){
-    countUS++;
-    }
-}
-
-console.log("uk count:" + countUK)
-
-*/
-//console.log(carsArray);
-
-//console.log(carsArray[1].make_country);
+//MAKE 'carsArrays' VARIABLE)
+carsArrays = carsObjects.Makes;
 
 //COUNT ALL COUNTRIES
-
-//create an object that will hold all of our counts.
+//create an object that will hold all of our countries.
 let countryCounter = {};
 
 //go thru each of the car manufacturer...
@@ -48,21 +24,19 @@ for (let i = 0; i < carsArray.length; i++){
      countryCounter[currentCountry] = countryCounter[currentCountry] + 1;
    }
 }
-
 console.log(countryCounter)
+*/
 
+/*
+let countryNames = [];
+let countryCounter = [];
 
-
-// this is part of the first code let countryNames = [];
-// this is part of the first code let countryCounter = [];
-
-/* this is part of the 1st code
-for (let i = 0; i < carsArray.length; i++){
- if(countryNames.indexOf(carsArray[i].make_country) < 0) {
-  countryNames.push(carsArray[i].make_country);
-  countryCounter.push(1)
+for (let i = 0; i < carsObjects.Makes.length; i++){
+ if(countryNames.indexOf(carsObjects.Makes[i].make_country) < 0) {
+  countryNames.push(carsObjects.Makes[i].make_country);
+  countryCounter.push(1);
  } else {
-        countryCounter[countryNames.indexOf(carsArray[i].make_country)]++;
+   countryCounter[countryNames.indexOf(carsObjects.Makes[i].make_country)]++;
   }
 }
 
