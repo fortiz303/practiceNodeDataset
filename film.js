@@ -7,7 +7,8 @@ let filmLocations = JSON.parse(data);
 let locations = filmLocations.data;
 //CREATE AN EMPTY OBJECT
 let filmYears = {};
-//
+
+
 
 /*
 //CREATE A LOOP
@@ -20,8 +21,6 @@ for(let i = 0; i < locations.length; i++){
  }
 }
 */
-
-//console.log(filmYears)
 
 for(let i = 0; i < locations.length; i++){
  let everyYear = locations[i][9];
@@ -44,13 +43,7 @@ console.log(filmYears[item]);
 myArray.push(filmYears[item]);
 }
 
-console.log('the most movies being made in a single year was: ' + Math.max(...myArray));
-/*
 
-let myYears = [];
-for (let i = 0; i < locations.length; i++ ){
- if(filmYears.length){
- 
- }
-}
-*/
+console.log('the most movies being made in a single year was: ' + Math.max(...myArray));
+
+
