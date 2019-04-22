@@ -1,0 +1,36 @@
+//DONE, Thank You God
+//REQUIRE THE MODULES
+const fs = require ('fs');
+//READ THE FILE AND CONVERT IT TO UTF8
+let data = fs.readFileSync('lottery.json','utf8');
+//PARSE THE DATA AND STORE IT IN THE 'LOTTERYDATA' VARIABLE
+lotteryData = JSON.parse(data);
+//LOTTERY WINNING NUMBERS ARE ALL INSIDE THIS
+let lotteryWinners = lotteryData.data
+
+//CREATE EMPTY OBJECT
+ let winnersObj = {};
+//CREATE EMPTY ARRAY
+ let winnersArray = [];
+//CREATE LOOP
+ for(let i = 0; i < lotteryWinners.length; i++){
+ let winners = lotteryWinners[i][9];
+ let indNumsArray = winners.split(' ');
+//ASK EDUARDO WHY THIS IS
+// console.log(indNumsArray);
+ let indNumStrings= indNumsArray[0];
+// winnersArray.push(indNumString);
+ if(winnersObj.hasOwnProperty(indNumStrings)==false){
+ winnersObj[indNumStrings] = 1;
+ } else {
+ winnersObj[indNumStrings] = winnersObj[indNumStrings] + 1
+ }
+}
+//console.log(winnersObj)
+
+let myArrayOfWinners = [];
+for(let key in winnersObj){
+myArrayOfWinners.push(winnersObj[key])
+}
+let biggestWinner = Math.max(...myArrayOfWinners)
+console.log(biggestWinner)

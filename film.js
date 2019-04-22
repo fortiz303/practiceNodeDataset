@@ -32,10 +32,6 @@ for(let i = 0; i < locations.length; i++){
  }
 }
 
-console.log(filmYears)
-
-console.log(filmYears['2015']);
-
 let myArray = [];
 
 for(let item in filmYears){

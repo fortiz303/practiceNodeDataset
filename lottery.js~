@@ -1,0 +1,6 @@
+//REQUIRE THE MODULES
+const fs = require ('fs');
+//READ THE FILE AND CONVERT IT TO UTF8
+let data = fs.readFileSync('lottery.json','utf8');
+lotteryData = JSON.parse(data);
+console.log(lotteryData);
